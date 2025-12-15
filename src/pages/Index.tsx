@@ -503,23 +503,50 @@ const Index = () => {
               </Card>
 
               <Card className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Напишите нам</h3>
+                <h3 className="text-2xl font-bold mb-6">Форма обратной связи</h3>
+                <p className="text-muted-foreground mb-6">Оставьте заявку и мы свяжемся с вами в течение 15 минут</p>
                 <form className="space-y-4">
                   <div>
-                    <Label htmlFor="name">Ваше имя</Label>
-                    <Input id="name" placeholder="Иван Иванов" className="mt-2" />
+                    <Label htmlFor="name">Ваше имя *</Label>
+                    <Input id="name" placeholder="Иван Иванов" className="mt-2" required />
                   </div>
                   <div>
-                    <Label htmlFor="phone">Телефон</Label>
-                    <Input id="phone" placeholder="+7 (___) ___-__-__" className="mt-2" />
+                    <Label htmlFor="phone">Телефон *</Label>
+                    <Input id="phone" type="tel" placeholder="+7 (999) 123-45-67" className="mt-2" required />
                   </div>
                   <div>
-                    <Label htmlFor="message">Сообщение</Label>
-                    <Input id="message" placeholder="Интересует BMW X7..." className="mt-2" />
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" placeholder="example@mail.ru" className="mt-2" />
                   </div>
-                  <Button className="w-full" size="lg">
+                  <div>
+                    <Label htmlFor="car">Интересующий автомобиль</Label>
+                    <Select>
+                      <SelectTrigger className="mt-2">
+                        <SelectValue placeholder="Выберите модель" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="mercedes">Mercedes-Benz S-Class</SelectItem>
+                        <SelectItem value="audi">Audi RS6 Avant</SelectItem>
+                        <SelectItem value="bmw">BMW X7 M50i</SelectItem>
+                        <SelectItem value="hyundai">Hyundai Solaris</SelectItem>
+                        <SelectItem value="kia">Kia Rio</SelectItem>
+                        <SelectItem value="other">Другой автомобиль</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="message">Комментарий</Label>
+                    <Textarea id="message" placeholder="Расскажите о ваших пожеланиях..." className="mt-2" rows={4} />
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <input type="checkbox" id="agree" className="mt-1" required />
+                    <Label htmlFor="agree" className="text-xs text-muted-foreground">
+                      Я согласен на обработку персональных данных
+                    </Label>
+                  </div>
+                  <Button className="w-full" size="lg" type="submit">
                     <Icon name="Send" size={18} className="mr-2" />
-                    Отправить сообщение
+                    Отправить заявку
                   </Button>
                 </form>
               </Card>
