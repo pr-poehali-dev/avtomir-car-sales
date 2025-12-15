@@ -59,6 +59,30 @@ const mockCars: Car[] = [
     transmission: 'Автомат',
     image: 'https://cdn.poehali.dev/projects/10ef4b30-77ef-4b06-812e-9ef48b1af0b6/files/e67bcf18-e40a-418f-9b7e-9b9f70d28ddf.jpg',
     inStock: true
+  },
+  {
+    id: 4,
+    name: 'Hyundai Solaris',
+    brand: 'Hyundai',
+    price: 1450000,
+    year: 2023,
+    mileage: 15000,
+    fuel: 'Бензин',
+    transmission: 'Механика',
+    image: 'https://cdn.poehali.dev/projects/10ef4b30-77ef-4b06-812e-9ef48b1af0b6/files/708e165e-fa8c-4635-bacd-90e19717e4bc.jpg',
+    inStock: true
+  },
+  {
+    id: 5,
+    name: 'Kia Rio',
+    brand: 'Kia',
+    price: 1350000,
+    year: 2022,
+    mileage: 22000,
+    fuel: 'Бензин',
+    transmission: 'Автомат',
+    image: 'https://cdn.poehali.dev/projects/10ef4b30-77ef-4b06-812e-9ef48b1af0b6/files/7af238f6-6f0a-4716-a0ee-206e90c00220.jpg',
+    inStock: true
   }
 ];
 
@@ -171,6 +195,18 @@ const Index = () => {
                 Калькулятор кредита
               </button>
               <button
+                onClick={() => setActiveTab('services')}
+                className={`hover:text-accent transition-colors ${activeTab === 'services' ? 'text-accent font-semibold' : ''}`}
+              >
+                Услуги
+              </button>
+              <button
+                onClick={() => setActiveTab('team')}
+                className={`hover:text-accent transition-colors ${activeTab === 'team' ? 'text-accent font-semibold' : ''}`}
+              >
+                Персонал
+              </button>
+              <button
                 onClick={() => setActiveTab('about')}
                 className={`hover:text-accent transition-colors ${activeTab === 'about' ? 'text-accent font-semibold' : ''}`}
               >
@@ -214,6 +250,8 @@ const Index = () => {
                     <SelectItem value="Mercedes-Benz">Mercedes-Benz</SelectItem>
                     <SelectItem value="BMW">BMW</SelectItem>
                     <SelectItem value="Audi">Audi</SelectItem>
+                    <SelectItem value="Hyundai">Hyundai</SelectItem>
+                    <SelectItem value="Kia">Kia</SelectItem>
                   </SelectContent>
                 </Select>
               </Card>
@@ -356,6 +394,234 @@ const Index = () => {
                   </Button>
                 </div>
               </Card>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="services">
+            <div className="mb-8">
+              <h2 className="text-4xl font-bold mb-2">Наши услуги</h2>
+              <p className="text-muted-foreground">Полный спектр автомобильных услуг</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="p-8 hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                  <Icon name="Search" size={32} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Автоподбор</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Профессиональный подбор автомобиля с пробегом. Проверка юридической чистоты, 
+                  техническая диагностика, торг с продавцом.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Проверка по базам</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Диагностика на СТО</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Торг с продавцом</span>
+                  </li>
+                </ul>
+                <div className="text-2xl font-bold text-accent mb-4">от 15 000 ₽</div>
+                <Button className="w-full">Заказать услугу</Button>
+              </Card>
+
+              <Card className="p-8 hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                  <Icon name="Wrench" size={32} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Ремонт и обслуживание</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Полный цикл ремонта и техобслуживания. Работаем с оригинальными 
+                  запчастями. Гарантия на все виды работ.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>ТО и диагностика</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Ремонт двигателя</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Кузовной ремонт</span>
+                  </li>
+                </ul>
+                <div className="text-2xl font-bold text-accent mb-4">от 3 000 ₽</div>
+                <Button className="w-full">Записаться</Button>
+              </Card>
+
+              <Card className="p-8 hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                  <Icon name="FileText" size={32} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Кредит и страхование</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Помощь в оформлении автокредита. Каско и ОСАГО на выгодных условиях.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>От 5.9% годовых</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Без первого взноса</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Онлайн оформление</span>
+                  </li>
+                </ul>
+                <div className="text-2xl font-bold text-accent mb-4">Бесплатно</div>
+                <Button className="w-full">Подать заявку</Button>
+              </Card>
+
+              <Card className="p-8 hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                  <Icon name="RefreshCw" size={32} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Trade-in</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Обмен вашего автомобиля на новый с доплатой. Выкупаем любые авто.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Быстрая оценка</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Выкуп в день обращения</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Выгодные условия</span>
+                  </li>
+                </ul>
+                <div className="text-2xl font-bold text-accent mb-4">Бесплатно</div>
+                <Button className="w-full">Оценить авто</Button>
+              </Card>
+
+              <Card className="p-8 hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                  <Icon name="Sparkles" size={32} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Детейлинг</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Профессиональная химчистка, полировка кузова, защитные покрытия.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Химчистка салона</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Полировка кузова</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Керамика и воск</span>
+                  </li>
+                </ul>
+                <div className="text-2xl font-bold text-accent mb-4">от 8 000 ₽</div>
+                <Button className="w-full">Записаться</Button>
+              </Card>
+
+              <Card className="p-8 hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                  <Icon name="CarFront" size={32} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Тюнинг</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Установка дополнительного оборудования, чип-тюнинг, замена запчастей.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Чип-тюнинг</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Установка обвесов</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Icon name="Check" size={16} className="text-accent" />
+                    <span>Аудио и мультимедиа</span>
+                  </li>
+                </ul>
+                <div className="text-2xl font-bold text-accent mb-4">от 10 000 ₽</div>
+                <Button className="w-full">Консультация</Button>
+              </Card>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="team">
+            <div className="mb-8">
+              <h2 className="text-4xl font-bold mb-2">Наша команда</h2>
+              <p className="text-muted-foreground">Профессионалы автомобильного бизнеса</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  name: 'Александр Петров',
+                  position: 'Директор автосалона',
+                  experience: '15 лет в автобизнесе'
+                },
+                {
+                  name: 'Ольга Смирнова',
+                  position: 'Менеджер по продажам',
+                  experience: '8 лет опыта'
+                },
+                {
+                  name: 'Дмитрий Козлов',
+                  position: 'Главный механик',
+                  experience: '12 лет в ремонте'
+                },
+                {
+                  name: 'Максим Волков',
+                  position: 'Автоподборщик',
+                  experience: '6 лет опыта'
+                },
+                {
+                  name: 'Елена Кузнецова',
+                  position: 'Кредитный специалист',
+                  experience: '7 лет в банке'
+                },
+                {
+                  name: 'Игорь Соколов',
+                  position: 'Мастер детейлинга',
+                  experience: '9 лет опыта'
+                },
+                {
+                  name: 'Анна Морозова',
+                  position: 'Менеджер Trade-in',
+                  experience: '5 лет опыта'
+                },
+                {
+                  name: 'Сергей Новиков',
+                  position: 'Специалист по тюнингу',
+                  experience: '10 лет опыта'
+                }
+              ].map((member, index) => (
+                <Card key={index} className="p-6 text-center hover:shadow-xl transition-shadow">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-4 flex items-center justify-center text-primary-foreground text-3xl font-bold">
+                    {member.name.charAt(0)}
+                  </div>
+                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                  <p className="text-accent font-semibold mb-2">{member.position}</p>
+                  <p className="text-sm text-muted-foreground">{member.experience}</p>
+                </Card>
+              ))}
             </div>
           </TabsContent>
 
