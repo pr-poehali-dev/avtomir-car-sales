@@ -193,7 +193,8 @@ const Index = () => {
       </header>
 
       <main className="container mx-auto px-4 py-12">
-        <Tabs value={activeTab} onValueChange={setActiveTab}>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="hidden" />
           <TabsContent value="catalog" className="mt-0">
             <div className="mb-8">
               <h2 className="text-4xl font-bold mb-2">Каталог автомобилей</h2>
